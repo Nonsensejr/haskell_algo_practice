@@ -1,3 +1,4 @@
+module MaxSubarray where
 import Data.List (maximumBy, elemIndex)
 import Data.Maybe (Maybe, fromJust)
 
@@ -16,13 +17,13 @@ maxIdx arr =
 
 maxFromMidl :: (Ord a, Num a) => [a] -> [a]
 maxFromMidl [] = [] 
-maxSubarray [a] = [a]
+maxFromMidl (x:[]) = [x]
 maxFromMidl arr =
     fst (splitAt (maxIdx (scanl (+) 0 arr)) arr)
 
 maxFromMidr :: (Ord a, Num a) => [a] -> [a]
 maxFromMidr [] = [] 
-maxSubarray [a] = [a]
+maxFromMidr (x:[]) = [x]
 maxFromMidr arr =
     snd (splitAt (maxIdx (scanr (+) 0 arr)) arr)
 
